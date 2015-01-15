@@ -1,0 +1,43 @@
+{
+  "name": "amazeui-doc-util",
+  "version": "0.1.0",
+  "description": "Amaze UI Markdown docs parsing util.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amazeui/doc-util.git"
+  },
+  "keywords": [
+    "amazeui",
+    "markdown",
+    "amazeui-docs"
+  ],
+  "author": "minwe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amazeui/doc-util/issues"
+  },
+  "homepage": "https://github.com/amazeui/doc-util",
+  "dependencies": {
+    "handlebars": "^2.0.0",
+    "highlight.js": "^8.4.0",
+    "lodash": "^2.4.1",
+    "marked": "^0.3.2",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "amazeui": "^2.1.0",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-csso": "^0.2.9",
+    "gulp-header": "^1.2.2",
+    "gulp-less": "^2.0.1",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.0.2",
+    "markit-json": "^0.2.1"
+  }
+}
