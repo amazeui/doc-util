@@ -1,6 +1,6 @@
 {
   "name": "amazeui-doc-util",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Amaze UI Markdown docs parsing util.",
   "main": "index.js",
   "scripts": {
