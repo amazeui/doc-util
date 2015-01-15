@@ -56,7 +56,6 @@ gulp.task('test', function(){
     .pipe(gulp.dest('./dist'));
 });
 
-
 gulp.task('watch', function() {
   gulp.watch('template/less/**/*.less', ['less']);
 });
