@@ -56,6 +56,20 @@ gulp.task('test', function(){
     .pipe(gulp.dest('./dist'));
 });
 
+// upload docs assets to Qiniu
+gulp.task('qn', function() {
+  gulp.src(['dist/**/*.min.*'])
+    .pipe($.qndn.upload({
+      prefix: 'assets/plugin',
+      qn: {
+        accessKey: process.env.qnAK,
+        secretKey: process.env.qnSK,
+        bucket: process.env.qnBucketUIS,
+        domain: process.env.qnDomainUIS
+      }
+    }));
+});
+
 gulp.task('watch', function() {
   gulp.watch('template/less/**/*.less', ['less']);
 });

@@ -1,6 +1,6 @@
 {
   "name": "amazeui-doc-util",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Amaze UI Markdown docs parsing util.",
   "main": "index.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "gulp-header": "^1.2.2",
     "gulp-less": "^2.0.1",
     "gulp-load-plugins": "^0.8.0",
+    "gulp-qndn": "0.0.3",
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.0.2",
     "markit-json": "^0.2.1"
