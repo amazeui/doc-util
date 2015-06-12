@@ -1,9 +1,11 @@
 'use strict';
 
+var format = require('util').format;
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var markJSON = require('markit-json');
 var docUtil = require('./index');
+var pkg = require('./package.json');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -22,7 +24,7 @@ var paths = {
   js: './template/js/app.js'
 };
 
-var headerTpl = '/*! Build on <%= date %> */\n';
+var headerTpl = format('/*! %s v%s | built on <%= date %> */\n', pkg.name, pkg.version);
 
 gulp.task('less', function() {
   return gulp.src(paths.less)
@@ -47,12 +49,10 @@ gulp.task('js', function() {
 });
 
 gulp.task('test', function(){
-  return gulp.src('./test/test.md')
+  return gulp.src('./test/*.md')
     .pipe(markJSON(docUtil.markedOptions))
     .pipe(docUtil.applyTemplate())
-    .pipe($.rename(function(file) {
-      file.extname = '.html';
-    }))
+    .pipe($.rename({extname: '.html'}))
     .pipe(gulp.dest('./dist'));
 });
 

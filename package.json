@@ -1,6 +1,6 @@
 {
   "name": "amazeui-doc-util",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Amaze UI Markdown docs parsing util.",
   "main": "index.js",
   "scripts": {
@@ -22,11 +22,12 @@
   },
   "homepage": "https://github.com/amazeui/doc-util",
   "dependencies": {
-    "handlebars": "^2.0.0",
+    "handlebars": "^3.0.3",
     "highlight.js": "^8.4.0",
-    "lodash": "^2.4.1",
     "marked": "^0.3.2",
-    "through2": "^0.6.3"
+    "object.assign": "^3.0.0",
+    "through2": "^0.6.3",
+    "unidecode": "^0.1.7"
   },
   "devDependencies": {
     "amazeui": "^2.1.0",

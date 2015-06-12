@@ -40,3 +40,20 @@
 ## 参考链接
 
 - [html5-boilerplate main.css](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css)
+
+## Table
+
+### Simple Table
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+### Just another table
+
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
