@@ -2,6 +2,7 @@
 
 var format = require('util').format;
 var gulp = require('gulp');
+var webpack = require('webpack-stream');
 var $ = require('gulp-load-plugins')();
 var markJSON = require('markit-json');
 var docUtil = require('./index');
@@ -40,6 +41,11 @@ gulp.task('less', function() {
 
 gulp.task('js', function() {
   return gulp.src(paths.js)
+    .pipe(webpack({
+      output: {
+        filename: 'app.js',
+      },
+    }))
     .pipe($.uglify())
     .pipe($.rename(function(file) {
       file.extname = '.min.js'
@@ -51,7 +57,10 @@ gulp.task('js', function() {
 gulp.task('test', function(){
   return gulp.src('./test/*.md')
     .pipe(markJSON(docUtil.markedOptions))
-    .pipe(docUtil.applyTemplate())
+    .pipe(docUtil.applyTemplate(null, {
+      pluginTitle: 'Amaze UI Plugin',
+      pluginDesc: 'Just another Amaze UI plugin.'
+    }))
     .pipe($.rename({extname: '.html'}))
     .pipe(gulp.dest('./dist'));
 });

@@ -1,6 +1,6 @@
 {
   "name": "amazeui-doc-util",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Amaze UI Markdown docs parsing util.",
   "main": "index.js",
   "scripts": {
@@ -22,24 +22,26 @@
   },
   "homepage": "https://github.com/amazeui/doc-util",
   "dependencies": {
-    "handlebars": "^3.0.3",
-    "highlight.js": "^8.4.0",
-    "marked": "^0.3.2",
-    "object.assign": "^3.0.0",
-    "through2": "^0.6.3",
+    "handlebars": "^4.0.5",
+    "highlight.js": "^8.9.1",
+    "marked": "^0.3.5",
+    "object.assign": "^4.0.3",
+    "through2": "^2.0.0",
     "unidecode": "^0.1.7"
   },
   "devDependencies": {
-    "amazeui": "^2.1.0",
-    "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-csso": "^0.2.9",
-    "gulp-header": "^1.2.2",
-    "gulp-less": "^2.0.1",
-    "gulp-load-plugins": "^0.8.0",
+    "amazeui": "^2.5.0",
+    "clipboard": "^1.5.5",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-header": "^1.7.1",
+    "gulp-less": "^3.0.5",
+    "gulp-load-plugins": "^1.1.0",
     "gulp-qndn": "0.0.3",
-    "gulp-rename": "^1.2.0",
-    "gulp-uglify": "^1.0.2",
-    "markit-json": "^0.2.1"
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1",
+    "markit-json": "^0.2.1",
+    "webpack-stream": "^2.2.0"
   }
 }

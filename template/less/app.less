@@ -212,4 +212,58 @@
   }
 }
 
+
+// Code copy
+.doc-actions {
+  position: relative;
+  z-index: 999;
+}
+
+.doc-act-inner {
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: @gray;
+  border: 1px solid #eee;
+  border-width: 0 0 1px 1px;
+  border-radius: 0 2px 0 2px;
+  cursor: pointer;
+  z-index: 9999;
+
+  span {
+    padding: 3px 8px;
+
+    + span {
+      border-left: 1px solid #eee;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 2px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 2px;
+    }
+  }
+}
+
+.doc-act-clip {
+  &.success {
+    background: @global-success;
+    color: #fff;
+  }
+
+  &.error {
+    background: @global-danger;
+    color: #fff;
+  }
+
+  &:hover {
+    background: @global-primary;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
 @import "import/hl";

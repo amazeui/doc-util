@@ -1,5 +1,6 @@
 (function() {
-  var $ = this.jQuery;
+  var Clipboard = require('clipboard');
+  var $ = window.jQuery;
 
   if (!$ || !$.AMUI) {
     return;
@@ -7,7 +8,8 @@
 
   var oldIETest = function() {
     var $testCode = $('<!--[if lte IE 9]><span id="old-ie-tester"></span><![endif]-->');
-    var isOldIE = $(document.body).append($testCode).find('#old-ie-tester').length;
+    var isOldIE = $(document.body).append($testCode)
+      .find('#old-ie-tester').length;
     $testCode.remove();
     return !!isOldIE;
   };
@@ -22,7 +24,7 @@
   };
 
   AMPlugin.prototype.toolbar = function() {
-    var _this =  this;
+    var _this = this;
     var $w = $(window);
     var $toolbar = $('#amp-toolbar');
     var $goTop = $toolbar.find('#amp-go-top');
@@ -65,7 +67,58 @@
     $w.on('resize', $.AMUI.utils.debounce(checkWinWidth, 100));
   };
 
+  function initClipboard() {
+    var copyBtn = '<div class="doc-actions"><div class="doc-act-inner">' +
+      '<span class="doc-act-clip am-icon-copy"> Copy</span></div></div>';
+
+    $('.doc-code').each(function() {
+      var $code = $(this);
+      var $prev = $code.prev();
+
+      if ($prev.hasClass('doc-example')) {
+        $prev.before(copyBtn);
+      } else {
+        $code.before(copyBtn);
+      }
+    });
+
+    // https://zenorocha.github.io/clipboard.js/
+    var clipboard = new Clipboard('.doc-act-clip', {
+      text: function(trigger) {
+        var $next = $(trigger).parent().parent().next();
+        var $reqCode = $next.is('.doc-code') ? $next : $next.next('.doc-code');
+
+        return $reqCode.text();
+      }
+    });
+
+    var timer;
+
+    clipboard.on('success', function(e) {
+      var $trigger = $(e.trigger);
+      var oldText = ' Copy';
+      var success = 'success';
+
+      $trigger.addClass(success).text(' Copied');
+
+      timer && clearTimeout(timer);
+      timer = setTimeout(function() {
+        $trigger.removeClass(success).text(oldText);
+      }, 3000);
+
+      console.info('Copied text to clipboard: ' + e.text);
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+      $(e.trigger).text(' Error!').addClass('error');
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+  }
+
   $(function() {
     new AMPlugin();
+    initClipboard();
   });
-}).call(this);
+}).call(window);
