@@ -4,7 +4,7 @@ var format = require('util').format;
 var gulp = require('gulp');
 var webpack = require('webpack-stream');
 var $ = require('gulp-load-plugins')();
-var markJSON = require('markit-json');
+var markJSON = require('gulp-marked-json');
 var docUtil = require('./index');
 var pkg = require('./package.json');
 
